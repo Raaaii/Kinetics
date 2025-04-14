@@ -1,5 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+# data_loader.py or wherever your function is
+from kinetics.config import COLUMN_ICG, COLUMN_HSA, COLUMN_DABS, COLUMN_DABS_ERR
+from kinetics.config import STANDARD_LIGAND, STANDARD_PROTEIN, STANDARD_ABS
 
 
 # def load_data(filepath):
@@ -58,18 +61,18 @@ def summarize_results(
 
 
 
-
 def load_data_and_build_list(filepath, sheet):
     df = pd.read_excel(filepath, sheet_name=sheet)
-    df["[HSA]"] = pd.to_numeric(df["B"], errors="coerce")
-    df["[ICG]"] = pd.to_numeric(df["A"], errors="coerce")
-    df["Delta Abs"] = pd.to_numeric(df["m"], errors="coerce")
-    df.dropna(subset=["[HSA]", "[ICG]", "Delta Abs"], inplace=True)
 
-    if "Delta Abs Error" not in df.columns:
-        df["Delta Abs Error"] = 0.0
+    df[STANDARD_PROTEIN] = pd.to_numeric(df[COLUMN_HSA], errors="coerce")
+    df[STANDARD_LIGAND] = pd.to_numeric(df[COLUMN_ICG], errors="coerce")
+    df[STANDARD_ABS] = pd.to_numeric(df[COLUMN_DABS], errors="coerce")
+    df.dropna(subset=[STANDARD_PROTEIN, STANDARD_LIGAND, STANDARD_ABS], inplace=True)
 
-    data_list = [(row["[ICG]"], row["[HSA]"], row["Delta Abs"]) for _, row in df.iterrows()]
+    if COLUMN_DABS_ERR not in df.columns:
+        df[COLUMN_DABS_ERR] = 0.0
+
+    data_list = [(row[STANDARD_LIGAND], row[STANDARD_PROTEIN], row[STANDARD_ABS]) for _, row in df.iterrows()]
     return df, data_list
 
 
