@@ -20,3 +20,17 @@ INIT_PARAMS_3SPECIES = {
     "offset": {"value": 2.1796e-04 },
     "scale": {"value": 0.1},
 }
+
+# config.py
+# kinetics/config.py
+
+# Raw column names in Excel
+COLUMN_ICG = "A"
+COLUMN_HSA = "B"
+COLUMN_DABS = "m"
+COLUMN_DABS_ERR = "Delta Abs Error"
+
+# Standardized internal column names
+STANDARD_LIGAND = "[ICG]"
+STANDARD_PROTEIN = "[HSA]"
+STANDARD_ABS = "Delta Abs"
