@@ -1,36 +1,28 @@
-<h1 align="center">🔬 Kinetics</h1>
+# Kinetics
 
-<p align="center">
-  <strong>A friendly Python tool for fitting molecular binding data</strong><br>
-  Author: <a href="mailto:rajka.pejanovic@ens.psl.eu">Rajka Pejanovic</a>
-</p>
+Author: Rajka Pejanovic
 
----
+**Kinetics** is a Python-based tool for analyzing absorbance data from molecular binding experiments. It supports both **two-species** and **three-species** sequential binding models.
 
-**Kinetics** is a Python-based tool for analyzing absorbance data from molecular binding experiments.  
-It supports both **two-species** and **three-species** sequential binding models.
-
-> 🧪 You do **not** need to be a programmer to use this tool — just follow the steps below!
+You do **not** need to be a programmer to use this tool — just follow the steps below!
 
 ---
 
 ## 💡 What It Does
 
-Kinetics takes an Excel file with your experimental absorbance data and fits it using physical models. It:
+Kinetics takes an Excel file containing your experimental absorbance data and fits it using physical models. It:
 
-- ✅ Calculates best-fit dissociation constants (**K₁, K₂, and K₃**)
-- ✅ Predicts **ΔAbs** values
-- ✅ Uses fitted parameters to compute species concentrations (free ligand, A₁B, A₂B, etc.)
-- ✅ 📊 Plots fit curves and concentration profiles
-- ✅ 💾 Saves everything to `.csv` and prints results in the terminal
+- ✅ Calculates best-fit dissociation constants (K₁, K₂, and K₃)
+- ✅ Predicts ΔAbs values
+- ✅ Use calculated k values to calculate the concentrations (of free ligand, A1B, A2B..)
+- ✅ Plots fit curves and calculated concentrations
+- ✅ Saves all results into a `.csv` file and prints the fitting results.
 
 ---
 
 ## 📦 Installation
 
-### 🔁 1. Clone the repository
-
-```bash
+### 1. Clone the repository
 git clone https://github.com/yourusername/kinetics.git
 cd kinetics
 
@@ -60,7 +52,6 @@ A: ligand concentration (typically constant)
 m: measured absorbance change
 
 Place your file in the data/ directory.
-
 
 
 ### How to Run
