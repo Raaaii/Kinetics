@@ -1,0 +1,108 @@
+# Kinetics
+
+
+Author: Rajka Pejanovic
+
+**Kinetics** is a Python-based tool for analyzing absorbance data from molecular binding experiments. It supports both **two-species** and **three-species** sequential binding models.
+
+You do **not** need to be a programmer to use this tool — just follow the steps below!
+
+---
+
+## 💡 What It Does
+
+Kinetics takes an Excel file containing your experimental absorbance data and fits it using physical models. It:
+
+- ✅ Calculates best-fit dissociation constants (K₁, K₂, and K₃)
+- ✅ Predicts ΔAbs values
+- ✅ Use calculated k values to calculate the concentrations (of free ligand, A1B, A2B..)
+- ✅ Plots fit curves and calculated concentrations
+- ✅ Saves all results into a `.csv` file and prints the fitting results.
+
+---
+
+## 📦 Installation
+
+### 1. Clone the repository
+git clone https://github.com/yourusername/kinetics.git
+cd kinetics
+
+### 2. (Optional) Create a virtual environment
+
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+### 3. Install Python dependencies
+pip install -r requirements.txt
+
+	### OR use conda:
+conda env create -f environment.yml
+conda activate kinetics-env
+
+### Data Format
+Prepare an Excel file (e.g. data.xlsx) with three columns:
+
+B (HSA)	A (ICG)	m (ΔAbs)
+0.00001	0.00001	0.12
+0.00005	0.00001	0.20
+...	...	...
+B: protein concentration (varied)
+
+A: ligand concentration (typically constant)
+
+m: measured absorbance change
+
+Place your file in the data/ directory.
+
+
+
+### How to Run
+## From the root of the repo:
+
+To run the two-species model:
+python3 run.py 2species --file data/data.xlsx
+
+To run the three-species model:
+python3 run.py 3species --file data/data.xlsx
+
+
+📄 Output
+You will get:
+
+📈 Plots:
+
+Measured vs Fitted ΔAbs
+
+Residuals
+
+Fraction Bound vs Protein
+
+Species Concentrations vs Protein
+
+📄 A .csv file in the results/ folder with:
+
+Measured and fitted absorbance
+
+Calculated concentrations of bound and free species
+
+Fraction bound
+
+Results saved to 'results/three_species_fit.csv'
+
+
+
+### Configuration
+Change default output path:
+Edit the save_path argument in the summarize_results() call in run.py.
+
+Change parameter bounds or guesses:
+Modify the Parameters() setup inside:
+
+fit_2step_deltaAbs() for the 2-species model
+
+fit_3species_deltaAbs() for the 3-species model
+
+## You can also reparameterize by using logarithmic space (e.g. log_K1 instead of K1) for more stable fitting.
+
+
+### For eny question you might have : rajka.pejanovic@ens.psl.eu

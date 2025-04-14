@@ -1,0 +1,14 @@
+# .gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+.venv/
+env/
+venv/
+*.egg-info/
+*.log
+.DS_Store
+.ipynb_checkpoints/
