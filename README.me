@@ -34,10 +34,16 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 💎 3. Install Python dependencies
 pip install -r requirements.txt
+Then install the module
+pip install -e . 
 
 	### OR use conda:
-conda env create -f environment.yml
-conda activate kinetics-env
+	conda env create -f environment.yml
+	conda activate kinetics-env
+	Yhen install the module 
+	pip install -e . 
+
+
 
 ### Data Format
 Prepare an Excel file (e.g. data.xlsx) with three columns:
@@ -63,7 +69,6 @@ python3 run.py 2species --file data/data.xlsx
 
 To run the three-species model:
 python3 run.py 3species --file data/data.xlsx
-
 
 📄 Output
 You will get:
